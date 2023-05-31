@@ -1,3 +1,5 @@
 require('custom.remap')
 require('custom.packer')
-print('Hello custom')
+require('custom.set')
+
+vim.cmd.colorscheme('slate')
