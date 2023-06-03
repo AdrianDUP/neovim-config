@@ -61,4 +61,12 @@ return require('packer').startup(function(use)
         -- some optional icons
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     })
+
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
 end)
