@@ -19,3 +19,6 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', defaultOptions)
 --  Move between buffers
 vim.keymap.set('n', '<A-[>', ':bprevious<CR>', defaultOptions)
 vim.keymap.set('n', '<A-]>', ':bnext<CR>', defaultOptions)
+
+vim.keymap.set('', '<A-j>', '<Down>')
+vim.keymap.set('', '<A-k>', '<Up>')
