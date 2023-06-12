@@ -19,6 +19,11 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', defaultOptions)
 --  Move between buffers
 vim.keymap.set('n', '<A-[>', ':bprevious<CR>', defaultOptions)
 vim.keymap.set('n', '<A-]>', ':bnext<CR>', defaultOptions)
+vim.keymap.set('n', '[', ':bprevious<CR>', defaultOptions)
+vim.keymap.set('n', ']', ':bnext<CR>', defaultOptions)
 
 vim.keymap.set('', '<A-j>', '<Down>')
 vim.keymap.set('', '<A-k>', '<Up>')
+
+--  Keymap to easily format json
+vim.keymap.set('n', '<leader>jq', ':%!jq .')
