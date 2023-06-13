@@ -1,3 +1,5 @@
+--  This is to make it detected as a neovim instance
+vim.opt.title = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
