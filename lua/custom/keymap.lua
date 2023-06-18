@@ -27,3 +27,6 @@ vim.keymap.set('', '<A-k>', '<Up>')
 
 --  Keymap to easily format json
 vim.keymap.set('n', '<leader>jq', ':%!jq .')
+vim.keymap.set('n', '<leader>f', function()
+    vim.lsp.buf.format { async = true }
+end)

@@ -124,4 +124,6 @@ return require('packer').startup(function(use)
             })
         end
     }
+
+    use 'praem90/nvim-phpcsf'
 end)

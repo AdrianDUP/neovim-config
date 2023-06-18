@@ -1,3 +1,3 @@
 local rnvim = require('rest-nvim')
 
-vim.keymap.set('n', '<Space>r', '<Plug>RestNvim<CR>')
+vim.keymap.set('n', '<leader>r', '<Plug>RestNvim<CR>')
