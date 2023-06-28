@@ -80,7 +80,7 @@ return require('packer').startup(function(use)
     end }
 
     use 'airblade/vim-gitgutter'
-    
+
     use {
         "rest-nvim/rest.nvim",
         requires = { "nvim-lua/plenary.nvim" },
@@ -112,7 +112,7 @@ return require('packer').startup(function(use)
                     formatters = {
                         json = "jq",
                         html = function(body)
-                            return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
+                            return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
                         end
                     },
                 },
@@ -126,4 +126,6 @@ return require('packer').startup(function(use)
     }
 
     use 'praem90/nvim-phpcsf'
+
+    use 'HiPhish/nvim-ts-rainbow2'
 end)
