@@ -128,4 +128,6 @@ return require('packer').startup(function(use)
     use 'praem90/nvim-phpcsf'
 
     use 'HiPhish/nvim-ts-rainbow2'
+
+    use 'nvim-treesitter/nvim-treesitter-context'
 end)
