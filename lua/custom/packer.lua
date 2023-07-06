@@ -130,4 +130,6 @@ return require('packer').startup(function(use)
     use 'HiPhish/nvim-ts-rainbow2'
 
     use 'nvim-treesitter/nvim-treesitter-context'
+
+    use 'lunarvim/lunar.nvim'
 end)
