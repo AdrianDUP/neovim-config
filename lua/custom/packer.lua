@@ -71,13 +71,14 @@ return require('packer').startup(function(use)
     })
 
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end }
+    --     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    --         require("toggleterm").setup()
+    --     end }
 
     use 'airblade/vim-gitgutter'
 
@@ -143,9 +144,36 @@ return require('packer').startup(function(use)
 
     use 'sigmavim/kyotonight'
 
-    use 'rainglow/vim'
+    use({
+        "andythigpen/nvim-coverage",
+        requires = "nvim-lua/plenary.nvim",
+        -- Optional: needed for PHP when using the cobertura parser
+        rocks = { 'lua-xmlreader' },
+        config = function()
+            require("coverage").setup()
+        end,
+    })
 
-    use 'nanotech/jellybeans'
+    use { 'catppuccin/nvim', as = 'catppuccin' }
 
-    use 'fabi1cazenave/kalahari.vim'
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "theutz/neotest-pest",
+        },
+        config = function()
+            require('neotest').setup({
+                adapters = {
+                    require('neotest-pest')({
+                        pest_cmd = function()
+                            return 'vendor/bin/pest'
+                        end
+                    }),
+                }
+            })
+        end
+    }
 end)

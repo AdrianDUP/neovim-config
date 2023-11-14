@@ -21,6 +21,8 @@ vim.keymap.set('n', '<A-[>', ':bprevious<CR>', defaultOptions)
 vim.keymap.set('n', '<A-]>', ':bnext<CR>', defaultOptions)
 vim.keymap.set('n', '<C-p>', ':bprevious<CR>', defaultOptions)
 vim.keymap.set('n', '<C-n>', ':bnext<CR>', defaultOptions)
+vim.keymap.set('n', '[', ':previous<CR>', defaultOptions)
+vim.keymap.set('n', ']', ':bnext<CR>', defaultOptions)
 
 vim.keymap.set('', '<A-j>', '<Down>')
 vim.keymap.set('', '<A-k>', '<Up>')
