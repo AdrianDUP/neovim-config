@@ -25,5 +25,8 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-
+--  Enable cursor line
 vim.opt.cursorline = true
+--  Set split directions other side
+vim.opt.splitbelow = true
+vim.opt.splitright = true
