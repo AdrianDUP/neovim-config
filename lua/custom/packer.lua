@@ -126,23 +126,14 @@ return require('packer').startup(function(use)
         end
     }
 
-    use 'praem90/nvim-phpcsf'
-
-    use 'HiPhish/nvim-ts-rainbow2'
-
     use 'nvim-treesitter/nvim-treesitter-context'
-
-    use 'lunarvim/lunar.nvim'
-
-    use 'EdenEast/nightfox.nvim'
-
-    use 'tiagovla/tokyodark.nvim'
-
-    use 'rafi/awesome-vim-colorschemes'
-
     use 'ray-x/lsp_signature.nvim'
-
+    --  Colorschemes
     use 'sigmavim/kyotonight'
+    use 'lunarvim/lunar.nvim'
+    use 'EdenEast/nightfox.nvim'
+    use 'tiagovla/tokyodark.nvim'
+    use 'rafi/awesome-vim-colorschemes'
 
     use({
         "andythigpen/nvim-coverage",
