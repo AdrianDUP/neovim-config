@@ -19,8 +19,8 @@ local cmp_select = { behaviour = cmp.SelectBehavior.Select }
 
 cmp.setup({
     mapping = {
-        ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<A-j>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<A-k>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<Esc>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
