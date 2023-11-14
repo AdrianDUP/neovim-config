@@ -2,7 +2,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 --  Create a custom keymap for using nvim tree
-vim.keymap.set('n', '<A-1>', vim.cmd.NvimTreeToggle)
+vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle)
 
 -- empty setup using defaults
 -- require("nvim-tree").setup()

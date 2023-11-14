@@ -69,4 +69,10 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",
         },
     })
+
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 end)
