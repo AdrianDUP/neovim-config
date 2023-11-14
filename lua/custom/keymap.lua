@@ -30,3 +30,6 @@ vim.keymap.set('n', '<leader>jq', ':%!jq .')
 vim.keymap.set('n', '<leader>f', function()
     vim.lsp.buf.format { async = true }
 end)
+
+--  Some clean up scripts
+vim.keymap.set('n', '<leader>bw', ':%bd|e#|bd#<CR>');
