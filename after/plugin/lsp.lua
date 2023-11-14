@@ -5,6 +5,13 @@ lsp.on_attach(function(client, bufnr)
     lsp.buffer_autoformat()
 end)
 
+lsp.setup_nvim_cmp({
+    preselect = 'none',
+    completion = {
+        completeopt = 'menu,menuone,noinsert,noselect'
+    }
+})
+
 lsp.setup()
 
 local cmp = require('cmp')
