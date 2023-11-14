@@ -325,7 +325,7 @@ require("lazy").setup({
 	{ dir = "~/projects/dracula_pro", priority = 1000, lazy = false },
 	{
 		"catppuccin/nvim",
-		lazy = true,
+		priority = 1000,
 		name = "catppuccin",
 		opts = {
 			integrations = {
@@ -440,6 +440,27 @@ require("lazy").setup({
 			{ "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
 		},
 	},
+	{
+		"Mofiqul/vscode.nvim",
+	},
+	{ "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+		lazy = false,
+		priority = 1000,
+		-- Add in any other configuration;
+		--   event = foo,
+		--   config = bar
+		--   end,
+	},
+	{ "shaunsingh/moonlight.nvim" },
+
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
 	--       These are some example plugins that I've included in the kickstart repository.
 	--       Uncomment any of the lines below to enable them.
@@ -846,7 +867,7 @@ cmp.setup({
 --  [[  Colorscheme setting  ]]
 -- vim.cmd.colorscheme 'dracula_pro_van_helsing'
 --  vim.cmd.colorscheme 'catppuccin'
-vim.cmd.colorscheme("lunar")
+vim.cmd.colorscheme("moonlight")
 
 --  [[  Some nice keybinds  ]]
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
