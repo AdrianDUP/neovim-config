@@ -136,4 +136,14 @@ return require('packer').startup(function(use)
     use 'EdenEast/nightfox.nvim'
 
     use 'tiagovla/tokyodark.nvim'
+
+    use 'rafi/awesome-vim-colorschemes'
+
+    use 'ray-x/lsp_signature.nvim'
+
+    use 'sigmavim/kyotonight'
+
+    use 'rainglow/vim'
+
+    use 'nanotech/jellybeans'
 end)
