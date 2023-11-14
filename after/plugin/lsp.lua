@@ -1,5 +1,7 @@
 local lsp = require('lsp-zero').preset({})
 
+require "lsp_signature".setup()
+
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
     lsp.buffer_autoformat()
@@ -33,4 +35,3 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
     }
 })
-

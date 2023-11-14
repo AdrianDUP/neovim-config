@@ -31,3 +31,5 @@ vim.opt.cursorline = true
 --  Set split directions other side
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+vim.opt.colorcolumn = '120'

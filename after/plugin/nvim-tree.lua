@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle)
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
-        width = 30,
+        width = 40,
     },
     renderer = {
         group_empty = true,
