@@ -1,1 +1,1 @@
-require('custom.colorschemes.dracula_pro_van_helsing')
+require('custom.colorschemes.lunar')

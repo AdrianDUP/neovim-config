@@ -146,4 +146,6 @@ return require('packer').startup(function(use)
     use 'rainglow/vim'
 
     use 'nanotech/jellybeans'
+
+    use 'fabi1cazenave/kalahari.vim'
 end)
