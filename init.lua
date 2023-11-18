@@ -460,6 +460,7 @@ require("lazy").setup({
 		--   end,
 	},
 	{ "shaunsingh/moonlight.nvim" },
+	{ "lumiliet/vim-twig" },
 
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
 	--       These are some example plugins that I've included in the kickstart repository.
@@ -523,7 +524,7 @@ vim.o.scrolloff = 8
 -- Tabs and spaces
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.expandtab = false
+vim.o.expandtab = true
 
 -- [[ Basic Keymaps ]]
 
@@ -883,6 +884,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		php = { "phpcbf" },
+		html = { "htmlbeautifier" },
 	},
 })
 
