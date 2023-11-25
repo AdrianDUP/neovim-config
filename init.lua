@@ -526,6 +526,9 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
+--  Highlight current line
+vim.opt.cursorline = true
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
