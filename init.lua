@@ -461,6 +461,10 @@ require("lazy").setup({
 	},
 	{ "shaunsingh/moonlight.nvim" },
 	{ "lumiliet/vim-twig" },
+	{ "nvim-treesitter/nvim-treesitter-context" },
+	{ "rose-pine/neovim", name = "rose-pine", priority = 1000 },
+	{ "miikanissi/modus-themes.nvim", priority = 1000 },
+	{ "oxfist/night-owl.nvim", priority = 1000 },
 
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
 	--       These are some example plugins that I've included in the kickstart repository.
@@ -528,6 +532,8 @@ vim.o.expandtab = true
 
 --  Highlight current line
 vim.opt.cursorline = true
+--  Increase timeout for drawtime
+vim.o.redrawtime = 5000
 
 -- [[ Basic Keymaps ]]
 
@@ -869,9 +875,10 @@ cmp.setup({
 })
 
 --  [[  Colorscheme setting  ]]
--- vim.cmd.colorscheme 'dracula_pro_van_helsing'
+--  vim.cmd.colorscheme("dracula_pro_van_helsing")
 --  vim.cmd.colorscheme 'catppuccin'
-vim.cmd.colorscheme("moonlight")
+--  vim.cmd.colorscheme("moonlight")
+vim.cmd.colorscheme("rose-pine")
 
 --  [[  Some nice keybinds  ]]
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
@@ -915,4 +922,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function(args)
 		require("conform").format({ bufnr = args.buf })
 	end,
+})
+
+require("treesitter-context").setup({
+	enable = true,
 })
