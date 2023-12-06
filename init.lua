@@ -465,6 +465,8 @@ require("lazy").setup({
 	{ "rose-pine/neovim", name = "rose-pine", priority = 1000 },
 	{ "miikanissi/modus-themes.nvim", priority = 1000 },
 	{ "oxfist/night-owl.nvim", priority = 1000 },
+	{ "nvim-lua/plenary.nvim" },
+	{ "ThePrimeagen/harpoon" },
 
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
 	--       These are some example plugins that I've included in the kickstart repository.
@@ -885,6 +887,19 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+--  [[  Harpoon keybindings  ]]
+-- vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+-- vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- vim.keymap.set("n", "<A-h>", function() harpoon:list():select(1) end)
+-- vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
+-- vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
+-- vim.keymap.set("n", "<A-l>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<leader>a", function() require('harpoon.mark').add_file() end)
+vim.keymap.set("n", "<A-e>", function() require('harpoon.ui').toggle_quick_menu() end)
+vim.keymap.set("n", "<A-h>", function() require('harpoon.ui').nav_file(1) end)
+vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
+vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
+vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
 --  Intialise some plugins
 require("mini.indentscope").setup()
 require("mini.align").setup()
