@@ -279,7 +279,7 @@ require("lazy").setup({
 			-- refer to the configuration section below
 		},
 	},
-	{ "echasnovski/mini.nvim", version = "*" },
+	-- { "echasnovski/mini.nvim", version = "*" },
 	{
 		"rcarriga/nvim-notify",
 		keys = {
@@ -467,6 +467,7 @@ require("lazy").setup({
 	{ "oxfist/night-owl.nvim", priority = 1000 },
 	{ "nvim-lua/plenary.nvim" },
 	{ "ThePrimeagen/harpoon" },
+	{ "cohama/lexima.vim" },
 
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
 	--       These are some example plugins that I've included in the kickstart repository.
@@ -901,9 +902,8 @@ vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
 vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
 vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
 --  Intialise some plugins
-require("mini.indentscope").setup()
-require("mini.align").setup()
-require("mini.pairs").setup()
+-- require("mini.indentscope").setup()
+-- require("mini.align").setup()
 
 require("conform").setup({
 	formatters_by_ft = {
