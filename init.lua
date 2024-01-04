@@ -418,6 +418,10 @@ require("lazy").setup({
 		opts = {},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+	{
+	  "zootedb0t/citruszest.nvim",
+	  lazy = false,
+	  priority = 1000,
 	},
 
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
@@ -488,6 +492,8 @@ vim.o.expandtab = true
 vim.opt.cursorline = true
 --  Increase timeout for drawtime
 vim.o.redrawtime = 5000
+
+vim.opt.swapfile = false
 
 -- [[ Basic Keymaps ]]
 
@@ -847,36 +853,12 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 -- vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
 -- vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
 -- vim.keymap.set("n", "<A-l>", function() harpoon:list():select(4) end)
-local hmark = require("harpoon.mark")
-local hui = require("harpoon.ui")
-
-vim.keymap.set("n", "<leader>g", function()
-	hmark.add_file()
-end)
-vim.keymap.set("n", "<leader>s", function()
-	hui.toggle_quick_menu()
-end)
-vim.keymap.set("n", "<leader>h", function()
-	hui.nav_file(1)
-end)
-vim.keymap.set("n", "<leader>j", function()
-	hui.nav_file(2)
-end)
-vim.keymap.set("n", "<leader>k", function()
-	hui.nav_file(3)
-end)
-vim.keymap.set("n", "<leader>l", function()
-	hui.nav_file(4)
-end)
-
-vim.keymap.set('n', '1', function() hui.nav_file(1) end)
-vim.keymap.set('n', '2', function() hui.nav_file(2) end)
-vim.keymap.set('n', '3', function() hui.nav_file(3) end)
-vim.keymap.set('n', '4', function() hui.nav_file(4) end)
-vim.keymap.set('n', '5', function() hui.nav_file(5) end)
-vim.keymap.set('n', '6', function() hui.nav_file(6) end)
-vim.keymap.set('n', '7', function() hui.nav_file(7) end)
-vim.keymap.set('n', '8', function() hui.nav_file(8) end)
+vim.keymap.set("n", "<A-a>", function() require('harpoon.mark').add_file() end)
+vim.keymap.set("n", "<A-e>", function() require('harpoon.ui').toggle_quick_menu() end)
+vim.keymap.set("n", "<A-h>", function() require('harpoon.ui').nav_file(1) end)
+vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
+vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
+vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
 --  Intialise some plugins
 -- require("mini.indentscope").setup()
 -- require("mini.align").setup()
