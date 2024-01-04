@@ -280,18 +280,18 @@ require("lazy").setup({
 		},
 	},
 	-- { "echasnovski/mini.nvim", version = "*" },
-	{
-		"rcarriga/nvim-notify",
-		keys = {
-			{
-				"<leader>un",
-				function()
-					require("notify").dismiss({ silent = true, pending = true })
-				end,
-				desc = "Dismiss all Notifications",
-			},
-		},
-	},
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>un",
+	-- 			function()
+	-- 				require("notify").dismiss({ silent = true, pending = true })
+	-- 			end,
+	-- 			desc = "Dismiss all Notifications",
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -304,7 +304,7 @@ require("lazy").setup({
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify",
 		},
 	},
 	{
@@ -367,66 +367,11 @@ require("lazy").setup({
 	},
 	{ "lunarvim/lunar.nvim" },
 	{
-		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
-		keys = {
-			{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-			{ "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-			{ "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
-			{ "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete buffers to the right" },
-			{ "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
-			{ "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-			{ "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-			{ "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-			{ "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-		},
-		opts = {
-			options = {
-        -- stylua: ignore
-        close_command = function(n) require("mini.bufremove").delete(n, false) end,
-        -- stylua: ignore
-        right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
-				diagnostics = "nvim_lsp",
-				always_show_bufferline = false,
-				offsets = {
-					{
-						filetype = "neo-tree",
-						text = "Neo-tree",
-						highlight = "Directory",
-						text_align = "left",
-					},
-				},
-			},
-		},
-		config = function(_, opts)
-			require("bufferline").setup(opts)
-			-- Fix bufferline when restoring a session
-			vim.api.nvim_create_autocmd("BufAdd", {
-				callback = function()
-					vim.schedule(function()
-						pcall(nvim_bufferline)
-					end)
-				end,
-			})
-		end,
-	},
-	{
 		"kdheepak/lazygit.nvim",
 		-- optional for floating window border decoration
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-	},
-	{
-		"folke/persistence.nvim",
-		event = "BufReadPre",
-		opts = { options = vim.opt.sessionoptions:get() },
-  -- stylua: ignore
-	  keys = {
-	    { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-	    { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-	    { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-	  },
 	},
 	{
 		"stevearc/aerial.nvim",
@@ -467,7 +412,13 @@ require("lazy").setup({
 	{ "oxfist/night-owl.nvim", priority = 1000 },
 	{ "nvim-lua/plenary.nvim" },
 	{ "ThePrimeagen/harpoon" },
-	{ "cohama/lexima.vim" },
+	{ "jiangmiao/auto-pairs" },
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart,
 	--       These are some example plugins that I've included in the kickstart repository.
@@ -656,6 +607,7 @@ vim.defer_fn(function()
 			"vimdoc",
 			"vim",
 			"bash",
+			"php",
 		},
 
 		-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -879,9 +831,9 @@ cmp.setup({
 
 --  [[  Colorscheme setting  ]]
 --  vim.cmd.colorscheme("dracula_pro_van_helsing")
---  vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme("catppuccin-mocha")
 --  vim.cmd.colorscheme("moonlight")
-vim.cmd.colorscheme("rose-pine")
+--  vim.cmd.colorscheme("rose-pine")
 
 --  [[  Some nice keybinds  ]]
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
@@ -895,12 +847,36 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 -- vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
 -- vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
 -- vim.keymap.set("n", "<A-l>", function() harpoon:list():select(4) end)
-vim.keymap.set("n", "<leader>a", function() require('harpoon.mark').add_file() end)
-vim.keymap.set("n", "<A-e>", function() require('harpoon.ui').toggle_quick_menu() end)
-vim.keymap.set("n", "<A-h>", function() require('harpoon.ui').nav_file(1) end)
-vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
-vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
-vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
+local hmark = require("harpoon.mark")
+local hui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>g", function()
+	hmark.add_file()
+end)
+vim.keymap.set("n", "<leader>s", function()
+	hui.toggle_quick_menu()
+end)
+vim.keymap.set("n", "<leader>h", function()
+	hui.nav_file(1)
+end)
+vim.keymap.set("n", "<leader>j", function()
+	hui.nav_file(2)
+end)
+vim.keymap.set("n", "<leader>k", function()
+	hui.nav_file(3)
+end)
+vim.keymap.set("n", "<leader>l", function()
+	hui.nav_file(4)
+end)
+
+vim.keymap.set('n', '1', function() hui.nav_file(1) end)
+vim.keymap.set('n', '2', function() hui.nav_file(2) end)
+vim.keymap.set('n', '3', function() hui.nav_file(3) end)
+vim.keymap.set('n', '4', function() hui.nav_file(4) end)
+vim.keymap.set('n', '5', function() hui.nav_file(5) end)
+vim.keymap.set('n', '6', function() hui.nav_file(6) end)
+vim.keymap.set('n', '7', function() hui.nav_file(7) end)
+vim.keymap.set('n', '8', function() hui.nav_file(8) end)
 --  Intialise some plugins
 -- require("mini.indentscope").setup()
 -- require("mini.align").setup()
@@ -910,6 +886,13 @@ require("conform").setup({
 		lua = { "stylua" },
 		php = { "phpcbf" },
 		html = { "htmlbeautifier" },
+	},
+	formatters = {
+		phpcbf = {
+			prepend_args = function(self, ctx)
+				return { "--standard=PSR12" }
+			end,
+		},
 	},
 })
 
@@ -932,13 +915,21 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = "*",
+-- 	callback = function(args)
+-- 		require("conform").format({ bufnr = args.buf })
+-- 	end,
+-- })
 
 require("treesitter-context").setup({
 	enable = true,
 })
+
+vim.keymap.set("n", "\\r", function()
+	require("conform").format()
+end)
+
+require("oil").setup()
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
