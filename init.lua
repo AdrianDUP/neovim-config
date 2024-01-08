@@ -467,19 +467,25 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
---  [[  Harpoon keybindings  ]]
--- vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
--- vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
--- vim.keymap.set("n", "<A-h>", function() harpoon:list():select(1) end)
--- vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
--- vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
--- vim.keymap.set("n", "<A-l>", function() harpoon:list():select(4) end)
-vim.keymap.set("n", "<A-a>", function() require('harpoon.mark').add_file() end)
-vim.keymap.set("n", "<A-e>", function() require('harpoon.ui').toggle_quick_menu() end)
-vim.keymap.set("n", "<A-h>", function() require('harpoon.ui').nav_file(1) end)
-vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
-vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
-vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
+
+if vim.fn.has('mac') then
+	--  MAC Bindings
+	--  [[  Harpoon keybindings  ]]
+	vim.keymap.set("n", "<leader>g", function() require('harpoon.mark').add_file() end)
+	vim.keymap.set("n", "<leader>s", function() require('harpoon.ui').toggle_quick_menu() end)
+	vim.keymap.set("n", "<leader>h", function() require('harpoon.ui').nav_file(1) end)
+	vim.keymap.set("n", "<leader>j", function() require('harpoon.ui').nav_file(2) end)
+	vim.keymap.set("n", "<leader>k", function() require('harpoon.ui').nav_file(3) end)
+	vim.keymap.set("n", "<leader>l", function() require('harpoon.ui').nav_file(4) end)
+else
+	--  [[  Harpoon keybindings  ]]
+	vim.keymap.set("n", "<A-a>", function() require('harpoon.mark').add_file() end)
+	vim.keymap.set("n", "<A-e>", function() require('harpoon.ui').toggle_quick_menu() end)
+	vim.keymap.set("n", "<A-h>", function() require('harpoon.ui').nav_file(1) end)
+	vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
+	vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
+	vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
+end
 --  Intialise some plugins
 -- require("mini.indentscope").setup()
 -- require("mini.align").setup()
