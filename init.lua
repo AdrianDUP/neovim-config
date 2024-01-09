@@ -413,6 +413,7 @@ mason_lspconfig.setup_handlers({
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
+
 luasnip.config.setup({})
 
 cmp.setup({
@@ -457,88 +458,6 @@ cmp.setup({
 })
 
 --  [[  Colorscheme setting  ]]
---  vim.cmd.colorscheme("dracula_pro_van_helsing")
 vim.cmd.colorscheme("catppuccin-mocha")
---  vim.cmd.colorscheme("moonlight")
---  vim.cmd.colorscheme("rose-pine")
-
---  [[  Some nice keybinds  ]]
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
-if vim.fn.has('mac') then
-	--  MAC Bindings
-	--  [[  Harpoon keybindings  ]]
-	vim.keymap.set("n", "<leader>g", function() require('harpoon.mark').add_file() end)
-	vim.keymap.set("n", "<leader>s", function() require('harpoon.ui').toggle_quick_menu() end)
-	vim.keymap.set("n", "<leader>h", function() require('harpoon.ui').nav_file(1) end)
-	vim.keymap.set("n", "<leader>j", function() require('harpoon.ui').nav_file(2) end)
-	vim.keymap.set("n", "<leader>k", function() require('harpoon.ui').nav_file(3) end)
-	vim.keymap.set("n", "<leader>l", function() require('harpoon.ui').nav_file(4) end)
-else
-	--  [[  Harpoon keybindings  ]]
-	vim.keymap.set("n", "<A-a>", function() require('harpoon.mark').add_file() end)
-	vim.keymap.set("n", "<A-e>", function() require('harpoon.ui').toggle_quick_menu() end)
-	vim.keymap.set("n", "<A-h>", function() require('harpoon.ui').nav_file(1) end)
-	vim.keymap.set("n", "<A-j>", function() require('harpoon.ui').nav_file(2) end)
-	vim.keymap.set("n", "<A-k>", function() require('harpoon.ui').nav_file(3) end)
-	vim.keymap.set("n", "<A-l>", function() require('harpoon.ui').nav_file(4) end)
-end
---  Intialise some plugins
--- require("mini.indentscope").setup()
--- require("mini.align").setup()
-
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		php = { "phpcbf" },
-		html = { "htmlbeautifier" },
-	},
-	formatters = {
-		phpcbf = {
-			prepend_args = function(self, ctx)
-				return { "--standard=PSR12" }
-			end,
-		},
-	},
-})
-
---  [[  Neotree Configuration  ]]
-vim.keymap.set("n", "<leader>e", function()
-	require("neo-tree.command").execute({ toggle = true })
-end)
-
-vim.keymap.set("n", "<leader>be", function()
-	require("neo-tree.command").execute({ source = "buffer", toggle = true })
-end)
-
---  [[  LazyGit configuration  ]]
-vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
-
---  [[  Autocommand  ]]
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
--- 	callback = function()
--- 		require("lint").try_lint()
--- 	end,
--- })
-
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		require("conform").format({ bufnr = args.buf })
--- 	end,
--- })
-
-require("treesitter-context").setup({
-	enable = true,
-})
-
-vim.keymap.set("n", "\\r", function()
-	require("conform").format()
-end)
-
-require("oil").setup()
-
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+--  [[  Include keymaps  ]]
+require('custom.keymaps.keymaps')

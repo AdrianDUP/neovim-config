@@ -4,6 +4,9 @@ return {
 		opts = {},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require('oil').setup()
+		end
 	},
 	-- {
 	-- 	"nvim-neo-tree/neo-tree.nvim",
