@@ -458,6 +458,6 @@ cmp.setup({
 })
 
 --  [[  Colorscheme setting  ]]
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("moonlight")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')

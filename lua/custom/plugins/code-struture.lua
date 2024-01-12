@@ -23,7 +23,7 @@ return {
 					},
 				},
 			})
-		end
+		end,
 	},
 	{
 		"stevearc/aerial.nvim",
@@ -36,5 +36,10 @@ return {
 		keys = {
 			{ "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
 		},
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {}, -- this is equalent to setup({}) function
 	},
 }
