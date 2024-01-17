@@ -47,4 +47,4 @@ vim.opt.cursorline = true
 vim.o.redrawtime = 5000
 
 --  Disable swap file
-vim.opt.swafile = false
+vim.opt.swapfile = false
