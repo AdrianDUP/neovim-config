@@ -45,3 +45,6 @@ vim.o.expandtab = true
 vim.opt.cursorline = true
 --  Increase timeout for drawtime
 vim.o.redrawtime = 5000
+
+--  Disable swap file
+vim.opt.swafile = false

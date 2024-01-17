@@ -21,7 +21,7 @@ vim.keymap.set('n', '<leader>e', function() require('neo-tree.command').execute(
 vim.keymap.set('n', '<leader>be', function() require('neo-tree.command').execute({ source = 'buffer', toggle = true }) end)
 
 --  [[  Filesystem based Keymaps  ]]
-if vim.fn.has('mac') then
+if vim.loop.os_uname ~= "Linux" then
 vim.keymap.set("n", "<leader>s", function() mark.add_file() end)
 vim.keymap.set("n", "<leader>d", function() ui.toggle_quick_menu() end)
 vim.keymap.set("n", "<leader>h", function() ui.nav_file(1) end)
