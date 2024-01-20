@@ -1,6 +1,12 @@
 return {
 	-- "gc" to comment visual regions/lines
-	"numToStr/Comment.nvim",
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require('Comment').setup()
+		end,
+		lazy = false
+	},
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },

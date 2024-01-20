@@ -21,18 +21,39 @@ vim.keymap.set('n', '<leader>e', function() require('neo-tree.command').execute(
 vim.keymap.set('n', '<leader>be', function() require('neo-tree.command').execute({ source = 'buffer', toggle = true }) end)
 
 --  [[  Filesystem based Keymaps  ]]
-if vim.loop.os_uname ~= "Linux" then
-vim.keymap.set("n", "<leader>s", function() mark.add_file() end)
-vim.keymap.set("n", "<leader>d", function() ui.toggle_quick_menu() end)
-vim.keymap.set("n", "<leader>h", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<leader>j", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<leader>k", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<leader>l", function() ui.nav_file(4) end)
-	else
-vim.keymap.set("n", "<A-a>", function() mark.add_file() end)
-vim.keymap.set("n", "<A-e>", function() ui.toggle_quick_menu() end)
-vim.keymap.set("n", "<A-h>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<A-j>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<A-k>", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<A-l>", function() ui.nav_file(4) end)
+if vim.loop.os_uname().sysname == "Linux" then
+	vim.keymap.set("n", "<A-a>", function() mark.add_file() end)
+	vim.keymap.set("n", "<A-e>", function() ui.toggle_quick_menu() end)
+	vim.keymap.set("n", "<A-h>", function() ui.nav_file(1) end)
+	vim.keymap.set("n", "<A-j>", function() ui.nav_file(2) end)
+	vim.keymap.set("n", "<A-k>", function() ui.nav_file(3) end)
+	vim.keymap.set("n", "<A-l>", function() ui.nav_file(4) end)
+else
+	vim.keymap.set("n", "<leader>s", function() mark.add_file() end)
+	vim.keymap.set("n", "<leader>d", function() ui.toggle_quick_menu() end)
+	vim.keymap.set("n", "<leader>h", function() ui.nav_file(1) end)
+	vim.keymap.set("n", "<leader>j", function() ui.nav_file(2) end)
+	vim.keymap.set("n", "<leader>k", function() ui.nav_file(3) end)
+	vim.keymap.set("n", "<leader>l", function() ui.nav_file(4) end)
 end
+local tele = require('telescope.builtin')
+-- See `:help telescope.builtin`
+vim.keymap.set("n", "<leader>?", tele.oldfiles, { desc = "[?] Find recently opened files" })
+vim.keymap.set("n", "<leader><space>", tele.buffers, { desc = "[ ] Find existing buffers" })
+vim.keymap.set("n", "<leader>/", function()
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 10,
+		previewer = false,
+	}))
+end, { desc = "[/] Fuzzily search in current buffer" })
+
+vim.keymap.set("n", "<leader>gf", tele.git_files, { desc = "Search [G]it [F]iles" })
+vim.keymap.set("n", "<leader>sf", tele.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>sh", function() tele.find_files({hidden = true}) end, { desc = "[S]earch [H]idden" })
+vim.keymap.set("n", "<leader>sH", tele.help_tags, { desc = "[S]earch [H]elp" })
+vim.keymap.set("n", "<leader>sw", tele.grep_string, { desc = "[S]earch current [W]ord" })
+vim.keymap.set("n", "<leader>sg", tele.live_grep, { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
+vim.keymap.set("n", "<leader>sd", tele.diagnostics, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set("n", "<leader>sr", tele.resume, { desc = "[S]earch [R]esume" })
