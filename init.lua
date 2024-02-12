@@ -442,3 +442,5 @@ cmp.setup({
 vim.cmd.colorscheme("rose-pine")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')
+
+require('Comment').setup()

@@ -21,4 +21,7 @@ return {
         priority = 900,
         lazy = false,
 	},
+	{
+		'mbbill/undotree'
+	},
 }

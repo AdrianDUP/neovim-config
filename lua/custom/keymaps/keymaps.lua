@@ -19,6 +19,10 @@ end)
 --  [[  NeoTree keymaps  ]]
 vim.keymap.set('n', '<leader>e', function() require('neo-tree.command').execute({ toggle = true }) end)
 vim.keymap.set('n', '<leader>be', function() require('neo-tree.command').execute({ source = 'buffer', toggle = true }) end)
+--  [[  Cloak  ]]
+vim.keymap.set('n', '<leader>c', require('cloak').toggle, { noremap = true })
+--  [[  UndoTree  ]]
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 --  [[  Filesystem based Keymaps  ]]
 if vim.loop.os_uname().sysname == "Linux" then
