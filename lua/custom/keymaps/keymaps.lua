@@ -17,7 +17,7 @@ end)
 --  [[  File navigation  ]]
 -- vim.keymap.set('n', '-', '<CMD>Ex<CR>')
 --  [[  NeoTree keymaps  ]]
-vim.keymap.set('n', '<leader>e', function() require('neo-tree.command').execute({ toggle = true }) end)
+-- vim.keymap.set('n', '<leader>e', function() require('neo-tree.command').execute({ toggle = true }) end)
 vim.keymap.set('n', '<leader>be', function() require('neo-tree.command').execute({ source = 'buffer', toggle = true }) end)
 --  [[  Cloak  ]]
 vim.keymap.set('n', '<leader>c', require('cloak').toggle, { noremap = true })

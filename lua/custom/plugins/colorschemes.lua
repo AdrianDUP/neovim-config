@@ -3,9 +3,6 @@ return {
 		-- Theme inspired by Atom
 		"navarasu/onedark.nvim",
 		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("onedark")
-		end,
 	},
 	{ dir = "~/projects/dracula_pro", priority = 1000, lazy = false },
 	{
@@ -61,22 +58,8 @@ return {
 		priority = 1000,
 		opts = {},
 	},
-	{
-		"nyoom-engineering/oxocarbon.nvim",
-		lazy = false,
-		priority = 1000,
-		-- Add in any other configuration;
-		--   event = foo,
-		--   config = bar
-		--   end,
-	},
 	{ "shaunsingh/moonlight.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine", priority = 1000 },
 	{ "miikanissi/modus-themes.nvim", priority = 1000 },
 	{ "oxfist/night-owl.nvim", priority = 1000 },
-	{
-	  "zootedb0t/citruszest.nvim",
-	  lazy = false,
-	  priority = 1000,
-	},
 }
