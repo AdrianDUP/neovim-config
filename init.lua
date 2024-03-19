@@ -339,7 +339,7 @@ cmp.setup({
 })
 
 --  [[  Colorscheme setting  ]]
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("moonlight")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')
 

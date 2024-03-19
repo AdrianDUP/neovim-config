@@ -78,3 +78,5 @@ vim.keymap.set("n", "<leader>sg", tele.live_grep, { desc = "[S]earch by [G]rep" 
 vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
 vim.keymap.set("n", "<leader>sd", tele.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sr", tele.resume, { desc = "[S]earch [R]esume" })
+--  [[ Copilot keymaps ]]
+vim.keymap.set('i', '<A-l>', 'copilot#Accept("<CR>")', { noremap = true, silent = true, expr = true, script = true })
