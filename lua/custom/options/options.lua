@@ -48,3 +48,4 @@ vim.o.redrawtime = 5000
 
 --  Disable swap file
 vim.opt.swapfile = false
+

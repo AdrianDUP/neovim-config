@@ -3,6 +3,10 @@
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+--  Copilot configurations
+--  In an attempt to make this work, I am setting this at the very start
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -321,6 +325,7 @@ cmp.setup({
 			else
 				fallback()
 			end
+
 		end, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -333,13 +338,15 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = {
+		-- Copilot Source
+		-- { name = "copilot", group_index = 2 },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 	},
 })
 
 --  [[  Colorscheme setting  ]]
-vim.cmd.colorscheme("moonlight")
+vim.cmd.colorscheme("catppuccin-mocha")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')
 
