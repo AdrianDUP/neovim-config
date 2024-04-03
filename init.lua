@@ -1,3 +1,5 @@
+require('custom.options.options')
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -26,7 +28,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("custom.plugins")
 
-require('custom.options.options')
 require('custom.keymaps.reset')
 
 

@@ -54,10 +54,10 @@ return {
 					-- mauve = "#cba6f7",
 					maroon = "#eba0ac",
 					teal = "#94e2d5",
-					sapphire = "#74c7ec",
+					-- sapphire = "#74c7ec",
 					subtext1 = "#bac2de", --  Not sure what this is referring to
 					subtext0 = "#a6adc8", --  No idea what this is referring to
-					overlay2 = "#ff00ff", --  Code completion default text color
+					overlay2 = "#6c7086", --  Code completion default text color, also quotes, perenthases
 					overlay1 = "#7f849c", --  Code completion text highlight
 					overlay0 = "#6c7086", --  Comments and colors on popups text
 					surface2 = "#585b70", --  Cursor maybe
