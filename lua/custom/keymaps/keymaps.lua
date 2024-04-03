@@ -80,3 +80,8 @@ vim.keymap.set("n", "<leader>sd", tele.diagnostics, { desc = "[S]earch [D]iagnos
 vim.keymap.set("n", "<leader>sr", tele.resume, { desc = "[S]earch [R]esume" })
 --  [[ Copilot keymaps ]]
 vim.keymap.set('i', '<C-l>', 'copilot#Accept("<CR>")', { noremap = true, silent = true, expr = true, script = true, replace_keycodes = false })
+--  [[  NeoTest  ]]
+vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.expand('%')) end)
+vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end)
+vim.keymap.set('n', '<leader>to', function() require("neotest").output.open({ enter = true }) end)
+vim.keymap.set('n', '<leader>tw', function() require("neotest").watch.toggle() end)
