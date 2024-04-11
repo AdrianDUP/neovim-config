@@ -10,6 +10,8 @@ vim.g.maplocalleader = " "
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 
+require('custom.options.options')
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -350,5 +352,6 @@ cmp.setup({
 vim.cmd.colorscheme("catppuccin-mocha")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')
+-- require('nvim-colorizer').setup()
 
 require('Comment').setup()
