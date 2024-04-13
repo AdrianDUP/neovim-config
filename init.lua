@@ -349,7 +349,7 @@ cmp.setup({
 })
 
 --  [[  Colorscheme setting  ]]
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("rose-pine")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')
 -- require('nvim-colorizer').setup()
