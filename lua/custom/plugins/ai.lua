@@ -21,7 +21,7 @@ return {
 	-- 		require("copilot_cmp").setup()
 	-- 	end,
 	-- },
-	{
-		'github/copilot.vim',
-	}
+	-- {
+	-- 	'github/copilot.vim',
+	-- }
 }
