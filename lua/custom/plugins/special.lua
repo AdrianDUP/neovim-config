@@ -43,14 +43,22 @@ return {
 				org_todo_keywords = {
 					"TODO(t)",
 					"PROGRESS(p)",
+					"ASSIGNED(a)",
 					"|",
 					"DONE(d)",
 				},
 				org_todo_keyword_faces = {
 					TODO = ":foreground red",
 					PROGRESS = ":foreground teal",
+					ASSIGNED = ":foreground cyan",
 					DONE = ":foreground green",
 				},
+				org_priority_lowest = "G",
+				mappings = {
+					org = {
+						org_toggle_checkbox = '<C-s>',
+					}
+				}
 			})
 
 			-- NOTE: If you are using nvim-treesitter with `ensure_installed = "all"` option
