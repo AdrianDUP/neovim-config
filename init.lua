@@ -349,7 +349,7 @@ cmp.setup({
 })
 
 --  [[  Colorscheme setting  ]]
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("dracula_pro_van_helsing")
 --  [[  Include keymaps  ]]
 require('custom.keymaps.keymaps')
 -- require('nvim-colorizer').setup()
