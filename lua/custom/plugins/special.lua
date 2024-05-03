@@ -42,16 +42,20 @@ return {
 				org_default_notes_file = "~/orgfiles/refile.org",
 				org_todo_keywords = {
 					"TODO(t)",
+					"ON_HOLD(h)",
 					"PROGRESS(p)",
+					"REVIEW(r)",
 					"ASSIGNED(a)",
 					"|",
 					"DONE(d)",
 				},
 				org_todo_keyword_faces = {
 					TODO = ":foreground red",
-					PROGRESS = ":foreground teal",
+					ON_HOLD = ":foreground #DDDDDD",
+					PROGRESS = ":foreground #006AFF",
+					REVIEW = ":foreground yellow",
 					ASSIGNED = ":foreground cyan",
-					DONE = ":foreground green",
+					DONE = ":foreground #00FF00",
 				},
 				org_priority_lowest = "G",
 				mappings = {
