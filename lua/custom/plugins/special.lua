@@ -57,7 +57,7 @@ return {
 					ASSIGNED = ":foreground cyan",
 					DONE = ":foreground #00FF00",
 				},
-				org_priority_lowest = "G",
+				-- org_priority_lowest = "G",
 				mappings = {
 					org = {
 						org_toggle_checkbox = '<C-s>',
