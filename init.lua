@@ -7,8 +7,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 --  Copilot configurations
 --  In an attempt to make this work, I am setting this at the very start
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
+--  This might come in handy later on. For the moment we will be leaving this disabled
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
 
 require('custom.options.options')
 
