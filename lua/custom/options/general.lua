@@ -17,3 +17,5 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 --  Sign column
 vim.wo.signcolumn = "yes"
+--  Highlight the current line
+vim.opt.cursorline = true

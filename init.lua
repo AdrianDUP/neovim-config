@@ -18,8 +18,11 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
+--  Include our plugins
 require("lazy").setup("custom.plugins")
-
---  Load our keymaps
+--  Load basic options
 require("custom.options.general")
+--  Load basic keymaps
+require("custom.keymaps.basic")
+--  Load final options
+require("custom.options.final")
