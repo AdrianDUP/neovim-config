@@ -17,5 +17,12 @@ return {
             { "<leader>sg", "<cmd>Telescope live_grep<cr>" },
             { "<leader><space>", "<cmd>Telescope buffers<cr>" },
         },
-    }
+    },
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
 }

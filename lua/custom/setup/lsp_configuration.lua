@@ -145,3 +145,5 @@ cmp.setup({
 		-- { name = "luasnip" },
 	},
 })
+
+vim.lsp.set_log_level("debug")
