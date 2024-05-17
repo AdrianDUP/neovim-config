@@ -19,3 +19,7 @@ vim.opt.smartcase = true
 vim.wo.signcolumn = "yes"
 --  Highlight the current line
 vim.opt.cursorline = true
+--  Terminal colors
+vim.opt.termguicolors = true
+--  Disable swap
+vim.opt.swapfile = false
