@@ -23,3 +23,5 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 --  Disable swap
 vim.opt.swapfile = false
+--  Add scrolloff
+vim.opt.scrolloff = 8
