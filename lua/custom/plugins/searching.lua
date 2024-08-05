@@ -12,11 +12,6 @@ return {
                 end,
             }
         },
-        keys = {
-            { "<leader>sf", "<cmd>Telescope find_files<cr>" },
-            { "<leader>sg", "<cmd>Telescope live_grep<cr>" },
-            { "<leader><space>", "<cmd>Telescope buffers<cr>" },
-        },
     },
     {
         "stevearc/oil.nvim",
