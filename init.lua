@@ -26,6 +26,7 @@ require("lazy").setup("custom.plugins")
 require("custom.options.general")
 --  Load basic keymaps
 require("custom.keymaps.basic")
+require("custom.keymaps.plugin-specific")
 --  Load configurations
 require("custom.setup.configurations")
 --  Load final options
