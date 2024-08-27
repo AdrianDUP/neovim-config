@@ -3,9 +3,10 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
---  [[  Harpoon keybindings  ]]
-local mark = require('harpoon.mark')
-local ui = require('harpoon.ui')
+--  [[  The locals  ]]
+local harpoon = require("harpoon")
+--  [[  Others  ]]
+harpoon:setup()
 --  [[  LazyGit configuration  ]]
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
 --  [[  Oil Keymaps ]]
@@ -34,28 +35,28 @@ vim.keymap.set("n", "<leader>gr", function() require("trouble").toggle("lsp_refe
 --  [[  Filesystem based Keymaps  ]]
 if vim.loop.os_uname().sysname == "Linux" then
 	--  [[  Harpoon  ]]
-	vim.keymap.set("n", "<A-a>", function() mark.add_file() end)
-	vim.keymap.set("n", "<A-e>", function() ui.toggle_quick_menu() end)
-	vim.keymap.set("n", "<A-h>", function() ui.nav_file(1) end)
-	vim.keymap.set("n", "<A-j>", function() ui.nav_file(2) end)
-	vim.keymap.set("n", "<A-k>", function() ui.nav_file(3) end)
-	vim.keymap.set("n", "<A-l>", function() ui.nav_file(4) end)
-	vim.keymap.set("n", "<A-H>", function() ui.nav_file(5) end)
-	vim.keymap.set("n", "<A-J>", function() ui.nav_file(6) end)
-	vim.keymap.set("n", "<A-K>", function() ui.nav_file(7) end)
-	vim.keymap.set("n", "<A-L>", function() ui.nav_file(8) end)
+	vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end)
+	vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(hapoon:list()) end)
+	vim.keymap.set("n", "<A-h>", function() harpoon:list():select(1) end)
+	vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
+	vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
+	vim.keymap.set("n", "<A-l>", function() harpoon:list():select(4) end)
+	vim.keymap.set("n", "<A-H>", function() harpoon:list():select(5) end)
+	vim.keymap.set("n", "<A-J>", function() harpoon:list():select(6) end)
+	vim.keymap.set("n", "<A-K>", function() harpoon:list():select(7) end)
+	vim.keymap.set("n", "<A-L>", function() harpoon:list():select(8) end)
 else
 	--  [[  Harpoon  ]]
-	vim.keymap.set("n", "<leader>s", function() mark.add_file() end)
-	vim.keymap.set("n", "<leader>d", function() ui.toggle_quick_menu() end)
-	vim.keymap.set("n", "<leader>h", function() ui.nav_file(1) end)
-	vim.keymap.set("n", "<leader>j", function() ui.nav_file(2) end)
-	vim.keymap.set("n", "<leader>k", function() ui.nav_file(3) end)
-	vim.keymap.set("n", "<leader>l", function() ui.nav_file(4) end)
-	vim.keymap.set("n", "<leader>H", function() ui.nav_file(5) end)
-	vim.keymap.set("n", "<leader>J", function() ui.nav_file(6) end)
-	vim.keymap.set("n", "<leader>K", function() ui.nav_file(7) end)
-	vim.keymap.set("n", "<leader>L", function() ui.nav_file(8) end)
+	vim.keymap.set("n", "<leader>s", function() harpoon:list():add() end)
+	vim.keymap.set("n", "<leader>d", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+	vim.keymap.set("n", "<leader>h", function() harpoon:list():select(1) end)
+	vim.keymap.set("n", "<leader>j", function() harpoon:list():select(2) end)
+	vim.keymap.set("n", "<leader>k", function() harpoon:list():select(3) end)
+	vim.keymap.set("n", "<leader>l", function() harpoon:list():select(4) end)
+	vim.keymap.set("n", "<leader>H", function() harpoon:list():select(5) end)
+	vim.keymap.set("n", "<leader>J", function() harpoon:list():select(6) end)
+	vim.keymap.set("n", "<leader>K", function() harpoon:list():select(7) end)
+	vim.keymap.set("n", "<leader>L", function() harpoon:list():select(8) end)
 end
 local tele = require('telescope.builtin')
 -- See `:help telescope.builtin`
@@ -78,8 +79,6 @@ vim.keymap.set("n", "<leader>sg", tele.live_grep, { desc = "[S]earch by [G]rep" 
 vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
 vim.keymap.set("n", "<leader>sd", tele.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sr", tele.resume, { desc = "[S]earch [R]esume" })
---  [[ Copilot keymaps ]]
-vim.keymap.set('i', '<C-l>', 'copilot#Accept("<CR>")', { noremap = true, silent = true, expr = true, script = true, replace_keycodes = false })
 --  [[  NeoTest  ]]
 vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.expand('%')) end)
 vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end)
