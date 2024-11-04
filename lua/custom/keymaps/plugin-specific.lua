@@ -53,3 +53,5 @@ else
 	vim.keymap.set("n", "<leader>K", function() harpoon:list():select(7) end)
 	vim.keymap.set("n", "<leader>L", function() harpoon:list():select(8) end)
 end
+-- [[  LazyGit  ]]
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
