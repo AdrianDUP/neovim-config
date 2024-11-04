@@ -63,7 +63,8 @@ local servers = {
 	-- rust_analyzer = {},
 	-- tsserver = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+    phpactor = {},
+    gopls = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -97,15 +98,15 @@ mason_lspconfig.setup_handlers({
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require("cmp")
--- local luasnip = require("luasnip")
---  require("luasnip.loaders.from_vscode").lazy_load()
-
--- luasnip.config.setup({})
+--  Include lua snip
+local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
+luasnip.config.setup({})
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			-- luasnip.lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -116,8 +117,18 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete({}),
 		["<CR>"] = cmp.mapping.confirm({
 			-- behavior = cmp.ConfirmBehavior.Replace,
-			-- select = true,
+			-- select = false,
 		}),
+		-- ["<CR>"] = cmp.mapping(function(fallback)
+		-- 	if cmp.visible() then
+		-- 		cmp.confirm({
+  --                   behavior = cmp.ConfirmBehavior.Replace,
+		-- 			select = true,
+		-- 		})
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -126,7 +137,6 @@ cmp.setup({
 			else
 				fallback()
 			end
-
 		end, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -139,10 +149,8 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = {
-		-- Copilot Source
-		-- { name = "copilot", group_index = 2 },
 		{ name = "nvim_lsp" },
-		-- { name = "luasnip" },
+		{ name = "luasnip" },
 	},
 })
 
