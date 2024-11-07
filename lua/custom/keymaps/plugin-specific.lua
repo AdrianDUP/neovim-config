@@ -55,3 +55,8 @@ else
 end
 -- [[  LazyGit  ]]
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
+--  [[  NeoTest  ]]
+vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.expand('%')) end)
+vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end)
+vim.keymap.set('n', '<leader>to', function() require("neotest").output.open({ enter = true }) end)
+vim.keymap.set('n', '<leader>tw', function() require("neotest").watch.toggle() end)
