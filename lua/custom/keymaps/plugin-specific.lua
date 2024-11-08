@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>sts", tele.treesitter, { desc = "[S]earch [T]ree [S
 if vim.loop.os_uname().sysname == "Linux" then
 	--  [[  Harpoon  ]]
 	vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end)
-	vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(hapoon:list()) end)
+	vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 	vim.keymap.set("n", "<A-h>", function() harpoon:list():select(1) end)
 	vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
 	vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
