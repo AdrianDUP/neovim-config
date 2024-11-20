@@ -1,15 +1,15 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        opts = {
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
-        },
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-    },
-    { "rose-pine/neovim", name = "rose-pine" },
-    {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+	},
+	{ "rose-pine/neovim", name = "rose-pine" },
+	{
 		"stevearc/dressing.nvim",
 		opts = {},
 	},
@@ -27,5 +27,9 @@ return {
 			--   If not available, we use `mini` as the fallback
 			-- "rcarriga/nvim-notify",
 		},
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 }
