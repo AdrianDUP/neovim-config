@@ -21,7 +21,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 --  Include our plugins
-require("lazy").setup("custom.plugins")
+require("lazy").setup({
+	{ import = "custom.plugins.general" },
+	{ import = "custom.plugins.searching" },
+	{ import = "custom.plugins.ui" },
+	{ import = "custom.plugins.colorschemes" },
+	{ import = "custom.plugins.git" },
+	{ import = "custom.plugins.pope" },
+	{ import = "custom.plugins.lsp" },
+	{ import = "custom.plugins.systems" },
+	{ import = "custom.plugins.laravel" },
+	{ import = "custom.plugins.php" },
+})
 --  Load basic options
 require("custom.options.general")
 --  Load basic keymaps

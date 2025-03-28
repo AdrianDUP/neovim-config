@@ -4,8 +4,8 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 --  Line numbers
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 --  Sync clipboard with os
 vim.o.clipboard = "unnamedplus"
 --  Break indent

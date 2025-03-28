@@ -18,7 +18,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			--  Adds a number of user-friendly snippets
-			"rafamadriz/friendly-snippets",
+			-- "rafamadriz/friendly-snippets",
 		},
 	},
 	{
@@ -41,7 +41,7 @@ return {
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				php = { "phpcbf" },
+				php = { "pint", "phpcbf" },
 				html = { "htmlbeautifier" },
 			},
 			formatters = {
@@ -53,4 +53,13 @@ return {
 			},
 		},
 	},
+	{
+		-- Add the blade-nav.nvim plugin which provides Goto File capabilities
+		-- for Blade files.
+		"ricardoramirezr/blade-nav.nvim",
+		dependencies = {
+		  "hrsh7th/nvim-cmp",
+		},
+		ft = { "blade", "php" },
+  },
 }
