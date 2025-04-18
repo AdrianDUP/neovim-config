@@ -46,6 +46,8 @@ end
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
+-- require("lua.custom.plugins.lsp.lspconf.lspconfig").setup()
+-- require("lspconfig").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
 
@@ -63,9 +65,9 @@ local servers = {
 	-- pyright = {},
 	-- rust_analyzer = {},
 	-- tsserver = {},
-    html = { filetypes = { 'html', 'twig', 'hbs'} },
-    -- phpactor = {},
-    gopls = {},
+	html = { filetypes = { "html", "twig", "hbs" } },
+	-- phpactor = {},
+	gopls = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -123,7 +125,7 @@ cmp.setup({
 		-- ["<CR>"] = cmp.mapping(function(fallback)
 		-- 	if cmp.visible() then
 		-- 		cmp.confirm({
-  --                   behavior = cmp.ConfirmBehavior.Replace,
+		--                   behavior = cmp.ConfirmBehavior.Replace,
 		-- 			select = true,
 		-- 		})
 		-- 	else
