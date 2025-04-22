@@ -26,6 +26,7 @@ require("lazy").setup({
 	{ import = "custom.plugins.git.gitsigns" },
 	{ import = "custom.plugins.git.lazygit" },
 	{ import = "custom.plugins.php.laravel" },
+	-- { import = "custom.plugins.php.laravel-old" },
 	{ import = "custom.plugins.php.laravel-helper" },
 	{ import = "custom.plugins.php.phptools" },
 	{ import = "custom.plugins.search.telescope" },
@@ -52,12 +53,12 @@ require("lazy").setup({
 	-- { import = "custom.plugins.colorschemes.vscode" },
 	-- { import = "custom.plugins.colorschemes.rosepine" },
 })
---  Load basic options
-require("custom.options.general")
 --  Load basic keymaps
 require("custom.keymaps.basic")
 require("custom.keymaps.plugin-specific")
 --  Load configurations
 require("custom.setup.configurations")
+--  Load basic options
+require("custom.options.general")
 --  Load final options
 require("custom.options.final")

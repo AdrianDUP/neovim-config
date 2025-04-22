@@ -1,14 +1,14 @@
 return {
 	{
+		-- Add the Laravel.nvim plugin which gives the ability to run Artisan commands
+		-- from Neovim.
 		"adalessa/laravel.nvim",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"tpope/vim-dotenv",
 			"MunifTanjim/nui.nvim",
-			"kevinhwang91/promise-async",
-			"nvimtools/none-ls.nvim",
 		},
-		tag = "v2.2.1",
+		tag = "v2.2.2",
 		cmd = { "Artisan", "Composer", "Npm", "Yarn", "Laravel", "Sail" },
 		keys = {
 			{ "<leader>la", ":Laravel artisan<cr>" },
@@ -16,19 +16,10 @@ return {
 			{ "<leader>lm", ":Laravel related<cr>" },
 		},
 		event = { "VeryLazy" },
-		opts = {
-			features = {
-				null_ls = {
-					enable = false,
-				},
-				route_info = {
-					enable = true,
-				},
-				model_info = {
-					enable = true,
-				}
-			}
-		},
 		config = true,
+		opts = {
+			lsp_server = "intelephense",
+			features = { null_ls = { enable = false } },
+		},
 	},
 }
