@@ -1,0 +1,74 @@
+"  Leader mapping
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8
+" Do incremental searching.
+set incsearch
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+set nu rnu
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+map \r <Action>(ReformatCode)
+nmap \z <Action>(ChangesView.Revert)
+" Navigate tabs better
+nmap [ <Action>(PreviousTab)
+nmap ] <Action>(NextTab)
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
+"  Refactoring
+nmap \o <Action>(OptimizeImports)
+nmap // <Action>(CommentByLineComment)
+vmap qq <Action>(CommentByBlockComment)
+nmap \f <Action>(CollapseSelection)
+"  Navigation
+nmap <leader>j <Action>(MethodDown)
+nmap <leader>k <Action>(MethodUp)
+"  Navigate splits better
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+" Jumping
+nmap <leader>b <Action>(Back)
+" Searching
+nmap <leader>sg <Action>(FindInPath)
+nmap <leader>sf <Action>(com.mituuz.fuzzier.Fuzzier)
+nmap <leader>mf <Action>(com.mituuz.fuzzier.FuzzyMover)
+nmap <leader>sG <Action>(com.mituuz.fuzzier.FuzzierVCS)
+" Additional functionality
+set surround
+" NERDTree
+set NERDTree
+nmap <leader>eo :NERDTree<CR>
+nmap <leader>ec :NERDTreeClose<CR>
+" Copy and Pasting
+vmap <leader>y <Action>(EditorCopy)
+nmap <leader>p <Action>(EditorPaste)
+" Git
+nmap <leader>gg <Action>(ActivateCommitToolWindow)
+" Generate
+nmap <leader>g <Action>(Generate)
+nmap <leader>i <Action>(ImplementMethods)
+nmap <leader>o <Action>(OverrideMethods)
+" Refactoring
+nmap <leader>qq <Action>(RenameElement)
+" Debugging
+nmap <leader>er <Action>(ShowErrorDescription)
+" Harpoon
+nmap <D-e> <Action>(ShowHarpoon)
+nmap <D-a> <Action>(AddToHarpoon)
+nmap <leader>h <Action>(GotoHarpoon1)
+nmap <leader>j <Action>(GotoHarpoon2)
+nmap <leader>k <Action>(GotoHarpoon3)
+nmap <leader>l <Action>(GotoHarpoon4)
+"nmap <D-h> <Action>(GotoHarpoon1)
+"nmap <D-j> <Action>(GotoHarpoon2)
+"nmap <D-k> <Action>(GotoHarpoon3)
+"nmap <D-l> <Action>(GotoHarpoon4)
+" Quick close all
+nmap <leader>bw <Action>(CloseAllEditorsButActive)
+nmap <leader>ed <Action>(ShowErrorDescription)
