@@ -1,5 +1,5 @@
 -- Force english
-vim.cmd("language en_US")
+-- vim.cmd("language en_US")
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -22,25 +22,30 @@ end
 vim.opt.rtp:prepend(lazypath)
 --  Include our plugins
 require("lazy").setup({
+	--  Git Plugins
 	{ import = "custom.plugins.git.fugitive" },
 	{ import = "custom.plugins.git.gitsigns" },
 	{ import = "custom.plugins.git.lazygit" },
+	--  PHP Plugins
 	{ import = "custom.plugins.php.laravel" },
-	-- { import = "custom.plugins.php.laravel-old" },
 	{ import = "custom.plugins.php.laravel-helper" },
 	{ import = "custom.plugins.php.phptools" },
+	--  Search plugins
 	{ import = "custom.plugins.search.telescope" },
 	{ import = "custom.plugins.search.harpoon" },
+	--  UI plugins
 	{ import = "custom.plugins.ui.treesitter" },
 	{ import = "custom.plugins.ui.treesitter-context" },
 	{ import = "custom.plugins.ui.dressing" },
 	{ import = "custom.plugins.ui.noice" },
 	{ import = "custom.plugins.ui.lualine" },
 	{ import = "custom.plugins.ui.indent-blankline" },
+	--  LSP Plugins
 	{ import = "custom.plugins.lsp.lspconf" },
 	{ import = "custom.plugins.lsp.nvim-cmp" },
 	{ import = "custom.plugins.lsp.aerial" },
 	{ import = "custom.plugins.lsp.blade" },
+	--  Code plugins
 	{ import = "custom.plugins.code.conform" },
 	{ import = "custom.plugins.code.sleuth" },
 	{ import = "custom.plugins.code.comment" },
@@ -48,7 +53,7 @@ require("lazy").setup({
 	{ import = "custom.plugins.general.orgmode" },
 	{ import = "custom.plugins.testing.neotest" },
 	{ import = "custom.plugins.files.oil" },
-	{ import = "custom.plugins.colorschemes.dracula_pro" },
+	-- { import = "custom.plugins.colorschemes.dracula_pro" },
 	{ import = "custom.plugins.colorschemes.nightfox" },
 	-- { import = "custom.plugins.colorschemes.vscode" },
 	-- { import = "custom.plugins.colorschemes.rosepine" },
