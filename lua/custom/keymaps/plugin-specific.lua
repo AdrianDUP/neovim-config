@@ -60,3 +60,6 @@ vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.e
 vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end)
 vim.keymap.set('n', '<leader>to', function() require("neotest").output.open({ enter = true }) end)
 vim.keymap.set('n', '<leader>tw', function() require("neotest").watch.toggle() end)
+
+--  LSP
+vim.keymap.set('n', '<leader>er', vim.diagnostic.open_float)
