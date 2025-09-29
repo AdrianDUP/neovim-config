@@ -26,6 +26,7 @@ require("lazy").setup({
 	{ import = "custom.plugins.git.fugitive" },
 	{ import = "custom.plugins.git.gitsigns" },
 	{ import = "custom.plugins.git.lazygit" },
+	{ import = "custom.plugins.git.gitlab" },
 	--  PHP Plugins
 	{ import = "custom.plugins.php.laravel" },
 	{ import = "custom.plugins.php.laravel-helper" },
