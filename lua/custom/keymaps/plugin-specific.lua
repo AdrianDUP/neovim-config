@@ -88,3 +88,24 @@ vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.scopes)
 end)
+vim.keymap.set('n', '<leader>do', function() require('dapui').open() end)
+vim.keymap.set('n', '<leader>dc', function() require('dapui').close() end)
+
+local dap = require('dap')
+local ui = require 'dapui'
+
+dap.listeners.before.attach.dapui_config = function()
+  ui.open()
+end
+
+dap.listeners.before.launch.dapui_config = function()
+  ui.open()
+end
+
+dap.listeners.before.event_terminated.dapui_config = function()
+  ui.close()
+end
+
+dap.listeners.before.attach.dapui_config = function()
+  ui.close()
+end

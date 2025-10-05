@@ -50,6 +50,8 @@ require("lazy").setup({
 	{ import = "custom.plugins.code.conform" },
 	{ import = "custom.plugins.code.sleuth" },
 	{ import = "custom.plugins.code.comment" },
+	--  Debugging
+	{ import = "custom.plugins.debugging.dap" },
 	-- { import = "custom.plugins.general.copy-file-path" },
 	{ import = "custom.plugins.general.orgmode" },
 	{ import = "custom.plugins.testing.neotest" },
